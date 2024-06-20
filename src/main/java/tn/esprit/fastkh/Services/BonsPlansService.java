@@ -10,35 +10,32 @@ import java.util.List;
 
 public class BonsPlansService implements InterfaceCRUD<BonsPlans> {
 
-
-
     Connection cnx = MyDataBase.getInstance().getCnx();
 
 
     @Override
     public void add(BonsPlans bon) {
 
-        String req ="INSERT INTO `bonsplans`( `titre`, `discription`, `addresse`) VALUES ('"+bon.getTitre()+"','"+bon.getDiscription()+"','"+bon.getAddresse()+"')";
-
+        String req = "INSERT INTO bonsplans (Title, Description, Adresse ,image) VALUES (?, ?, ?, ?)";
         try {
-            Statement st =cnx.createStatement();
-            st.executeUpdate(req);
-            System.out.println("Bons plans ajouter avec succees ");
-
+            PreparedStatement pst = cnx.prepareStatement(req);
+            pst.setString(1, bon.getTitle());
+            pst.setString(2, bon.getDescription());
+            pst.setString(3, bon.getAdresse());
+            pst.setBytes(4, bon.getImage());
+            pst.executeUpdate();
+            System.out.println("Bons plans ajouté avec succès");
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Erreur lors de l'ajout du bons plans", e);
         }
     }
 
     @Override
-    public void delete(int id) {
-
-
+    public void delete(BonsPlans bon) {
         String req = "DELETE FROM bonsplans WHERE id = ?";
-
         try {
             PreparedStatement pst = cnx.prepareStatement(req);
-            pst.setInt(1, id); // Assurez-vous que getId() retourne un int
+            pst.setInt(1, bon.getId());
             int rowsAffected = pst.executeUpdate();
             if (rowsAffected > 0) {
                 System.out.println("Bons plans supprimé avec succès");
@@ -48,50 +45,43 @@ public class BonsPlansService implements InterfaceCRUD<BonsPlans> {
         } catch (SQLException e) {
             throw new RuntimeException("Erreur lors de la suppression du bons plans", e);
         }
-
     }
 
     @Override
-    public void update(BonsPlans Bon) throws SQLException {
-
-        String req ="UPDATE `bonsplans` SET titre= ?, discription = ?, addresse = ? WHERE id=?";
+    public void update(BonsPlans bon) throws SQLException {
+        String req = "UPDATE bonsplans SET title = ?, description = ?, adresse = ? , image = ?  WHERE id = ?";
         PreparedStatement pst = cnx.prepareStatement(req);
+        pst.setString(1, bon.getTitle());
+        pst.setString(2, bon.getDescription());
+        pst.setString(3, bon.getAdresse());
+        pst.setInt(4, bon.getId());
+        pst.setBytes(5, bon.getImage());
 
-       pst.setString(1, Bon.getTitre());
-       pst.setString(2,Bon.getDiscription());
-       pst.setString(3,Bon.getAddresse());
-       pst.executeUpdate(req);
-
-
-
-
-
-
-
+        pst.executeUpdate();
     }
 
     @Override
     public List<BonsPlans> getAll() {
         List<BonsPlans> bonsPlans = new ArrayList<>();
-        String req = "SELECT * FROM bonsplans";
+        String req = "SELECT * FROM `bonsplans` ";
+
         try {
-            Statement st = cnx.createStatement();
+            //Statement st = cnx.createStatement();
+            PreparedStatement st = cnx.prepareStatement(req);
             ResultSet res = st.executeQuery(req);
-            while (res.next()){
-                BonsPlans Bp =new BonsPlans();
-                Bp.setId(res.getInt("id"));
-                Bp.setTitre(((ResultSet) res).getString(2));
-                Bp.setDiscription(res.getString(3));
-                Bp.setAddresse(res.getString(4));
 
-                bonsPlans.add(Bp);
+            while (res.next()) {
+                BonsPlans bp = new BonsPlans();
+                bp.setId(res.getInt("id"));
+                bp.setTitle(res.getString("Title"));
+                bp.setDescription(res.getString("Description"));
+                bp.setAdresse(res.getString("Adresse"));
+                bp.setImage(res.getBytes("image"));
+                bonsPlans.add(bp);
             }
-
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Erreur lors de la récupération des bons plans", e);
         }
-        return bonsPlans ;
+        return bonsPlans;
     }
-
-
 }

@@ -8,7 +8,7 @@ public interface InterfaceCRUD<S> {
 
     //CRUD
     public void add(S s);
-    public void delete(int id);
+    public void delete(S s);
     public void update(S s) throws SQLException;
     public List<S> getAll();
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane accessibleRole="BUTTON" prefHeight="400.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.fastkh.Controllers.AjouterBonsPlansController">
+
+            <TextField fx:id="fxTitle" layoutX="338.0" layoutY="104.0" />
+      <TextField fx:id="fxAdresse" layoutX="338.0" layoutY="152.0" />
+      <TextField fx:id="fxDescription" layoutX="338.0" layoutY="209.0" prefHeight="48.0" prefWidth="150.0" />
+      <Button layoutX="343.0" layoutY="309.0" mnemonicParsing="false" onAction="#handleAjouterBonsPlans" prefHeight="26.0" prefWidth="63.0" text="Ajouter" />
+      <Text layoutX="254.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title        :" wrappingWidth="94.0" />
+      <Text layoutX="253.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse :" />
+      <Text layoutX="254.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description : " />
+   <ImageView fitHeight="100.0" fitWidth="94.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@image/Logo.pg.png" />
+      </image>
+   </ImageView>
+   <Label layoutX="208.0" layoutY="21.0" prefHeight="58.0" prefWidth="519.0" text=" new Bons Plans !!" textFill="#25ccbe">
+      <font>
+         <Font name="System Bold Italic" size="40.0" />
+      </font>
+   </Label>
+   <Button layoutX="424.0" layoutY="309.0" mnemonicParsing="false" onAction="#SwitchHomepage" prefHeight="26.0" prefWidth="63.0" text="Retour" />
+   <ImageView fitHeight="100.0" fitWidth="94.0" layoutX="634.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@image/Logo.pg.png" />
+      </image>
+   </ImageView>
+
+</AnchorPane>
