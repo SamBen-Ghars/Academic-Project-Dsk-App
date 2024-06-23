@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.fastkh.Controllers.AfficherBonsPlansController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.fastkh.controllers.AfficherBonsPlansController">
    <children>
       <Button layoutX="78.0" layoutY="326.0" mnemonicParsing="false" onAction="#handleAfficherBonsPlans" prefHeight="26.0" prefWidth="155.0" text="Afficher " />
       <TableView fx:id="tableV" layoutX="78.0" layoutY="71.0" prefHeight="242.0" prefWidth="487.0">
@@ -25,7 +25,7 @@
             <Font name="System Bold Italic" size="30.0" />
          </font>
       </Label>
-      <Button layoutX="244.0" layoutY="326.0" mnemonicParsing="false" onAction="#handleAfficherBonsPlans" prefHeight="26.0" prefWidth="155.0" text="Modifier " />
+      <Button layoutX="244.0" layoutY="326.0" mnemonicParsing="false" onAction="#SwitchwithModifier" prefHeight="26.0" prefWidth="155.0" text="Modifier " />
       <Button layoutX="420.0" layoutY="326.0" mnemonicParsing="false" onAction="#SwitchHomepage" prefHeight="26.0" prefWidth="145.0" text="Retour" />
       <ImageView fitHeight="46.0" fitWidth="61.0" layoutX="141.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>

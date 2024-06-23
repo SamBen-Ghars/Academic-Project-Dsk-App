@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane accessibleRole="BUTTON" prefHeight="400.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.fastkh.Controllers.AjouterBonsPlansController">
+<AnchorPane accessibleRole="BUTTON" prefHeight="400.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.fastkh.controllers.AjouterBonsPlansController">
 
             <TextField fx:id="fxTitle" layoutX="338.0" layoutY="104.0" />
       <TextField fx:id="fxAdresse" layoutX="338.0" layoutY="152.0" />
