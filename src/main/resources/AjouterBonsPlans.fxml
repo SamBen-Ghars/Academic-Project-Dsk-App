@@ -14,7 +14,7 @@
             <TextField fx:id="fxTitle" layoutX="338.0" layoutY="104.0" />
       <TextField fx:id="fxAdresse" layoutX="338.0" layoutY="152.0" />
       <TextField fx:id="fxDescription" layoutX="338.0" layoutY="209.0" prefHeight="48.0" prefWidth="150.0" />
-      <Button layoutX="343.0" layoutY="309.0" mnemonicParsing="false" onAction="#handleAjouterBonsPlans" prefHeight="26.0" prefWidth="63.0" text="Ajouter" />
+      <Button layoutX="343.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleAjouterBonsPlans" prefHeight="26.0" prefWidth="63.0" text="Ajouter" />
       <Text layoutX="254.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title        :" wrappingWidth="94.0" />
       <Text layoutX="253.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse :" />
       <Text layoutX="254.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description : " />
@@ -28,11 +28,14 @@
          <Font name="System Bold Italic" size="40.0" />
       </font>
    </Label>
-   <Button layoutX="424.0" layoutY="309.0" mnemonicParsing="false" onAction="#SwitchHomepage" prefHeight="26.0" prefWidth="63.0" text="Retour" />
+   <Button layoutX="424.0" layoutY="322.0" mnemonicParsing="false" onAction="#SwitchHomepage" prefHeight="26.0" prefWidth="63.0" text="Retour" />
    <ImageView fitHeight="100.0" fitWidth="94.0" layoutX="634.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@image/Logo.pg.png" />
       </image>
    </ImageView>
-
+   <Button layoutX="338.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleBrowseButtonAction" text="parcourir " />
+    <ImageView fx:id="imageView" fitHeight="200" fitWidth="200" />
+   <ImageView fitHeight="26.0" fitWidth="63.0" layoutX="424.0" layoutY="282.0" onDragDetected="#imageView" pickOnBounds="true" preserveRatio="true" />
+    
 </AnchorPane>

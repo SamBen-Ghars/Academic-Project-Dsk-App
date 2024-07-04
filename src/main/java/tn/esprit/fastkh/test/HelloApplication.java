@@ -19,7 +19,7 @@ public class HelloApplication extends Application {
 
            // Ce route est utilser  pour c la page d'acceuil
             // qui va nous permettre a utilser d'autre route a l'aide du controller
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Home.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/GererBonsPlans.fxml")));
 
            //  creation d'une scene de type scene qui utlise le rout home page
             Scene scene = new Scene(root);

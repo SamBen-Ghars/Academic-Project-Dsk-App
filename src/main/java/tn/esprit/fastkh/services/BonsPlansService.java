@@ -4,11 +4,16 @@ import tn.esprit.fastkh.interfaces.InterfaceCRUD;
 import tn.esprit.fastkh.models.BonsPlans;
 import tn.esprit.fastkh.utils.MyDataBase;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BonsPlansService implements InterfaceCRUD<BonsPlans> {
+
+    private List<BonsPlans> bonsPlansList = new ArrayList<>();
 
     Connection cnx = MyDataBase.getInstance().getCnx();
 
@@ -57,31 +62,101 @@ public class BonsPlansService implements InterfaceCRUD<BonsPlans> {
         pst.setInt(4, bon.getId());
         pst.setBytes(5, bon.getImage());
 
+
+
         pst.executeUpdate();
     }
 
     @Override
     public List<BonsPlans> getAll() {
-        List<BonsPlans> bonsPlans = new ArrayList<>();
-        String req = "SELECT * FROM `bonsplans` ";
-
+        List<BonsPlans> bonsPlansList = new ArrayList<>();
+        String req = "SELECT * FROM bonsplans";
         try {
-            //Statement st = cnx.createStatement();
-            PreparedStatement st = cnx.prepareStatement(req);
-            ResultSet res = st.executeQuery(req);
-
+            PreparedStatement pst = cnx.prepareStatement(req);
+            ResultSet res = pst.executeQuery();
             while (res.next()) {
-                BonsPlans bp = new BonsPlans();
-                bp.setId(res.getInt("id"));
-                bp.setTitle(res.getString("Title"));
-                bp.setDescription(res.getString("Description"));
-                bp.setAdresse(res.getString("Adresse"));
-                bp.setImage(res.getBytes("image"));
-                bonsPlans.add(bp);
+                BonsPlans bp = new BonsPlans(
+                        res.getInt("id"),
+                        res.getString("Title"),
+                        res.getString("Description"),
+                        res.getString("Adresse"),
+                        res.getBytes("image")
+                );
+                bonsPlansList.add(bp);
             }
         } catch (SQLException e) {
             throw new RuntimeException("Erreur lors de la récupération des bons plans", e);
         }
-        return bonsPlans;
+        return bonsPlansList;
     }
+
+
+
+
+
+
+    // Method to search BonsPlans by ID, title, description, and adresse
+    public List<BonsPlans> searchBonsPlans(String searchText) {
+        List<BonsPlans> results = new ArrayList<>();
+        String sql = "SELECT * FROM bonsplans WHERE id = ? OR LOWER(title) LIKE ? OR LOWER(description) LIKE ? OR LOWER(adresse) LIKE ?";
+
+        try (
+             PreparedStatement pstmt = cnx.prepareStatement(sql)) {
+
+            // Try to parse the search text as an integer for ID search
+            int id = -1;
+            try {
+                id = Integer.parseInt(searchText);
+            } catch (NumberFormatException e) {
+                // searchText is not a valid integer, so we skip ID search
+            }
+
+            pstmt.setInt(1, id);
+            pstmt.setString(2, "%" + searchText.toLowerCase() + "%");
+            pstmt.setString(3, "%" + searchText.toLowerCase() + "%");
+            pstmt.setString(4, "%" + searchText.toLowerCase() + "%");
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                BonsPlans bp = new BonsPlans();
+                bp.setId(rs.getInt("id"));
+                bp.setTitle(rs.getString("title"));
+                bp.setDescription(rs.getString("description"));
+                bp.setAdresse(rs.getString("adresse"));
+                bp.setImage(rs.getBytes("image"));
+                results.add(bp);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return results;
+    }
+
+
+    public List<BonsPlans> fetchRecentlyAddedBonsPlans() {
+        List<BonsPlans> ls = new ArrayList<>();
+        String sql = "SELECT * FROM bonsplans ORDER BY id DESC LIMIT 10"; // Fetch last 10 added BonsPlans
+
+        try (
+             PreparedStatement pstmt = cnx.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery()) {
+
+            while (rs.next()) {
+                BonsPlans plans = new BonsPlans();
+                plans.setId(rs.getInt("id"));
+                plans.setTitle(rs.getString("title"));
+                plans.setDescription(rs.getString("description"));
+                plans.setAdresse(rs.getString("adresse"));
+                plans.setImage(rs.getBytes("image"));
+                ls.add(plans);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return ls;
+    }
+
+
 }

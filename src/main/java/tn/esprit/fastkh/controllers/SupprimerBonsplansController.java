@@ -34,7 +34,7 @@ public class SupprimerBonsplansController {
         BP.delete(B);
         Alert alert = new Alert((Alert.AlertType.INFORMATION));
         alert.show();
-        alert.setTitle("Quiz Deleted Succesfully !");
+        alert.setTitle("Bons Plans  Deleted Succesfully !");
 
 
     }

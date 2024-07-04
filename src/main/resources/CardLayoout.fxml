@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox fx:id="box" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="379.0" stylesheets="@CSS/cardlayoout.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.fastkh.controllers.CardController">
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" />
+      <ImageView fx:id="Imagev" fitHeight="109.0" fitWidth="204.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/Lerocher.jpg" />
+         </image>
+      </ImageView>
+      <VBox prefHeight="166.0" prefWidth="226.0" stylesheets="@CSS/cardlayoout.css">
+         <children>
+            <Label fx:id="titlep" prefHeight="38.0" prefWidth="210.0" text="Le Rochet">
+               <font>
+                  <Font name="Berlin Sans FB" size="16.0" />
+               </font>
+            </Label>
+            <Text fx:id="descp" strokeType="OUTSIDE" strokeWidth="0.0" text="Les meilleurs&#10; restaurants à Tunis" wrappingWidth="211.06439208984375">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Text>
+            <ImageView fitHeight="29.0" fitWidth="223.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/Avisjpg.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="Butmaps" mnemonicParsing="false" text="GO">
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/Maps(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <styleClass>
+            <String fx:value="shadow" />
+            <String fx:value="transparent" />
+         </styleClass>
+      </VBox>
+   </children>
+   <styleClass>
+      <String fx:value="white-background" />
+      <String fx:value="shadow" />
+   </styleClass>
+</HBox>
