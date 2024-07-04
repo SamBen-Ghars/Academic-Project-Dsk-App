@@ -20,13 +20,7 @@ public class HomeController {
 
 
 
-//    public void SwitchtoaddBonsplan(ActionEvent event ) throws IOException {
-//        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/AjouterBonsPlans.fxml")));
-//        primaryStage =(Stage)((Node)event.getSource()).getScene().getWindow();
-//        scene = new Scene(root);
-//        primaryStage.setScene(scene);
-//        primaryStage.show();
-//    }
+
 
 
 

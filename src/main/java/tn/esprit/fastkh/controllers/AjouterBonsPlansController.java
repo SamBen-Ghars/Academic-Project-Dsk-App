@@ -8,10 +8,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import tn.esprit.fastkh.models.BonsPlans;
 import tn.esprit.fastkh.services.BonsPlansService;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -33,6 +38,9 @@ public class AjouterBonsPlansController {
     private TextField fxTitle;
 
     @FXML
+    private ImageView imageView;
+
+    @FXML
     void handleAjouterBonsPlans(ActionEvent event) {
 
         BonsPlansService BP = new BonsPlansService();
@@ -44,6 +52,29 @@ public class AjouterBonsPlansController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.show();
         alert.setTitle("Votre Bon Plans a été ajouter avec succés");
+    }
+
+
+
+    @FXML
+    void handleBrowseButtonAction(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif")
+        );
+        File selectedFile = fileChooser.showOpenDialog(null);
+        if (selectedFile != null) {
+            try {
+                FileInputStream fis = new FileInputStream(selectedFile);
+                Image image = new Image(fis);
+                ImageView imageView = new ImageView(image);
+                imageView.setFitHeight(100);
+                imageView.setFitWidth(100);
+                // Affichez l'image sélectionnée ou faites quelque chose d'autre avec elle.
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 

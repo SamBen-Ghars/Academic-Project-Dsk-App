@@ -1,6 +1,9 @@
 package tn.esprit.fastkh.models;
 
-import java.util.Arrays;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+import java.io.ByteArrayInputStream;
 
 public class BonsPlans {
 
@@ -70,6 +73,21 @@ public class BonsPlans {
         this.image = image;
     }
 
+
+
+    public ImageView getImageView() {
+        if (image != null) {
+            ByteArrayInputStream bis = new ByteArrayInputStream(image);
+            Image img = new Image(bis);
+            ImageView imageView = new ImageView(img);
+            imageView.setFitHeight(50); // Adjust as needed
+            imageView.setFitWidth(50); // Adjust as needed
+            return imageView;
+        } else {
+            return null;
+        }
+    }
+
     @Override
     public String toString() {
         return "BonsPlans{" +
@@ -77,13 +95,8 @@ public class BonsPlans {
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", adresse='" + adresse + '\'' +
-                ", image=" + Arrays.toString(image) +
-               // ", image='" + imageString + '\'' +
+                //", image=" + Arrays.toString(image) +
+                // ", image='" + imageString + '\'' +
                 '}';
     }
 }
-
-
-
-
-

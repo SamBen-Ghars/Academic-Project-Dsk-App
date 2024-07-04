@@ -1,0 +1,35 @@
+/* Home.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+.root {
+    -fx-background-color: #f0f0f0;
+    -fx-font-family: 'Roboto', sans-serif;
+}
+
+.label {
+    -fx-text-fill: #25ccbe;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-font-style: italic;
+}
+
+.button {
+    -fx-background-color: #25ccbe;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-pref-width: 240px;
+    -fx-pref-height: 40px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #1ea690;
+}
+
+.image-view {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.5, 0, 0);
+}
