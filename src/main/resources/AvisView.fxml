@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import org.controlsfx.control.Rating?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="tn.esprit.fastkh.controllers.AvisController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <Label layoutX="50.0" layoutY="20.0" text="Votre Avis" />
+        <TextArea fx:id="commentTextArea" layoutX="50.0" layoutY="100.0" prefHeight="100.0" prefWidth="500.0" promptText="Votre commentaire..." />
+        <Button layoutX="50.0" layoutY="220.0" text="Soumettre" onAction="#handleSubmitAvis" />
+        <Rating fx:id="ratingField" layoutX="50.0" layoutY="50.0" max="5" />
+        <Label fx:id="averageRatingLabel" layoutX="50.0" layoutY="270.0" text="Note Moyenne: " />
+    </children>
+</AnchorPane>
+
+

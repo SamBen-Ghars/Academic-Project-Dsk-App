@@ -1,6 +1,6 @@
 
 .root {
-    -fx-background-color: #59eed9; /* Light Blue */
+    -fx-background-color: #03A696; /* Light Blue */
 }
 .shadow{
     -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,0.5), 6,0,0,0);

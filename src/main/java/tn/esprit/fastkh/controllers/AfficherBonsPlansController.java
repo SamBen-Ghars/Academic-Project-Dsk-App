@@ -1,12 +1,15 @@
 
 package tn.esprit.fastkh.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -14,10 +17,12 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import tn.esprit.fastkh.models.BonsPlans;
+import tn.esprit.fastkh.models.User;
 import tn.esprit.fastkh.services.BonsPlansService;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 public class AfficherBonsPlansController {
 
@@ -50,13 +55,39 @@ public class AfficherBonsPlansController {
         private List<BonsPlans> bonsPlans;
 
 
+        @FXML
+        private AnchorPane avisPane;
+
+        private int bonsPlanId;
+        private User currentUser;
+
+        public void SwitchHomepage(ActionEvent actionEvent) throws IOException {
+
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Home.fxml")));
+                primaryStage =(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                primaryStage.setScene(scene);
+                primaryStage.show();
+
+
+        }
+
+        public void switchToAfficherBonsPlans(javafx.event.ActionEvent actionEvent) throws IOException {
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/AfficherBonsPlans.fxml")));
+                primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                primaryStage.setScene(scene);
+                primaryStage.show();
+        }
+
+
+
         private BonsPlansService bonsPlansService = new BonsPlansService();
 
-        @FXML
         public void initialize() {
                 try {
-                        List<BonsPlans> recentlyAdded = bonsPlansService.fetchRecentlyAddedBonsPlans();
-                        List<BonsPlans> recommendedPlans = bonsPlansService.getAll(); // Assuming this method fetches recommended plans
+                        recentlyAdded = bonsPlansService.fetchRecentlyAddedBonsPlans();
+                        recommendedPlans = bonsPlansService.getAll(); // Assuming this method fetches recommended plans
 
                         // Ajout des éléments dans le VBox (recentlyAdded)
                         for (BonsPlans plan : recentlyAdded) {
@@ -64,7 +95,7 @@ public class AfficherBonsPlansController {
                                 HBox cardBox = fxmlLoader.load();
 
                                 CardController cardController = fxmlLoader.getController();
-                                cardController.setData(plan);
+                                cardController.setData(plan, currentUser); // Pass both plan and user
                                 cardlayout.getChildren().add(cardBox);
                         }
 
@@ -72,15 +103,13 @@ public class AfficherBonsPlansController {
                         int row = 2;
                         int column = 0;
                         for (BonsPlans Bons : recommendedPlans) {
-                                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/CardLayout2.fxml"));
-                                VBox cardBox = fxmlLoader.load();
-                                GridController gridController = fxmlLoader.getController();
-                                gridController.setData(Bons);
+                                // Ajout des éléments dans le GridPane (recommendedPlans)
+                                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/CardLayout2.fxml"));
+                                        VBox cardBox = fxmlLoader.load();
+                                        GridController gridController = fxmlLoader.getController();
+                                        gridController.setData(Bons, currentUser); // Pass both Bons and user
 
-                                //gridPane.add(cardBox, column, row);
-
-
-                                if (column == 8) { // Suppose 3 colonnes par ligne
+                                if (column == 3) { // Suppose 3 colonnes par ligne
                                         column = 0;
                                         row++;
                                 }
@@ -91,15 +120,10 @@ public class AfficherBonsPlansController {
 
                         loadmap(recentlyAdded);
 
-
                 } catch (IOException e) {
                         e.printStackTrace();
-
-
                 }
-
         }
-
 
         public void loadmap(List<BonsPlans> plans) {
                 if (mapWebView != null) {
@@ -128,6 +152,7 @@ public class AfficherBonsPlansController {
                         System.err.println("mapWebView n'est pas initialisé dans le fichier FXML.");
                 }
         }
+
 
 
 }

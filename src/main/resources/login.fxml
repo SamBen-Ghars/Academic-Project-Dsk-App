@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="400.0" prefWidth="1186.0" style="-fx-background-color: F3F8F7;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.fastkh.controllers.Login">
+    <center>
+        <VBox alignment="CENTER" spacing="10" style="-fx-background-color: F3F8F7;">
+            <AnchorPane prefHeight="370.0" prefWidth="1157.0">
+                <children>
+                    <Rectangle arcHeight="50.0" arcWidth="50.0" disable="true" fill="#ffffff00" focusTraversable="true" height="321.0" layoutX="578.0" layoutY="15.0" stroke="BLACK" strokeDashOffset="44.0" strokeLineCap="ROUND" strokeMiterLimit="59.0" strokeType="OUTSIDE" width="337.0">
+                        <cursor>
+                            <Cursor fx:constant="NONE" />
+                        </cursor>
+                    </Rectangle>
+
+                    <TextField fx:id="UserEmail" alignment="CENTER" layoutX="627.0" layoutY="43.0" maxHeight="54.0" maxWidth="254.0" minHeight="40.0" minWidth="200.0" prefHeight="54.0" prefWidth="254.0" promptText="Address Email" style="-fx-background-color: #99EAF3; -fx-background-radius: 50;">
+                        <font>
+                            <Font name="System Bold" size="12.0" />
+                        </font>
+                    </TextField>
+                    <PasswordField fx:id="UserPassword" alignment="CENTER" layoutX="630.0" layoutY="105.0" maxHeight="50.0" maxWidth="270.0" minHeight="40.0" minWidth="200.0" prefHeight="50.0" prefWidth="248.0" promptText="mot de passe" style="-fx-background-color: #99EAF3; -fx-background-radius: 50;">
+                        <font>
+                            <Font name="System Bold" size="12.0" />
+                        </font>
+                    </PasswordField>
+
+                    <Label layoutX="122.0" layoutY="30.0" text="Welcome To" AnchorPane.leftAnchor="122.0" AnchorPane.topAnchor="30.0">
+                        <font>
+                            <Font name="Lucida Handwriting Italic" size="46.0" />
+                        </font>
+                    </Label>
+                    <Label layoutX="228.0" layoutY="98.0" text="Fast-KH" textFill="RED" AnchorPane.leftAnchor="228.0" AnchorPane.topAnchor="98.0">
+                        <font>
+                            <Font name="Lucida Handwriting Italic" size="43.0" />
+                        </font>
+                    </Label>
+                    <Button fx:id="login" layoutX="682.0" layoutY="176.0" maxHeight="48.0" maxWidth="156.0" minHeight="36.0" minWidth="112.0" mnemonicParsing="false" onAction="#LoginUser" prefHeight="48.0" prefWidth="156.0" style="-fx-background-color: #0B5C65; -fx-background-radius: 10;" text="Connexion" textFill="WHITE">
+                        <font>
+                            <Font name="System Bold" size="17.0" />
+                        </font>
+                    </Button>
+                    <Button fx:id="inscriptionButton" layoutX="703.0" layoutY="239.0" maxHeight="30.0" maxWidth="114.0" minHeight="26.0" minWidth="99.0" mnemonicParsing="false" onAction="#inscriptionUser" prefHeight="30.0" prefWidth="114.0" style="-fx-background-color: #0B5C65; -fx-background-radius: 10;" text="Inscription" textFill="WHITE">
+                        <font>
+                            <Font name="System Bold" size="11.0" />
+                        </font>
+                    </Button>
+                    <ImageView fitHeight="188.0" fitWidth="220.0" layoutX="241.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="241.0" AnchorPane.topAnchor="152.0">
+                        <image>
+                            <Image url="@image/Logo.pg.png" />
+                        </image>
+                    </ImageView>
+                    <Text fx:id="forgotPass" fill="#5fadff" layoutX="697.0" layoutY="298.0" onMouseClicked="#emailCode" strokeType="OUTSIDE" strokeWidth="0.0" text="mot de passe oublié!">
+                        <font>
+                            <Font name="System Bold" size="13.0" />
+                        </font>
+                    </Text>
+                </children>
+            </AnchorPane>
+        </VBox>
+    </center>
+   <top>
+      <AnchorPane prefHeight="30.0" prefWidth="1198.0" styleClass="semi-top-form" stylesheets="@CSS/GererBonsPlans.css" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="14.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/Logo.pg.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="Minimise" layoutX="1099.0" layoutY="1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="49.0" styleClass="minimize" stylesheets="@CSS/GererBonsPlans.css" text="--" AnchorPane.rightAnchor="37.80000000000009" AnchorPane.topAnchor="1.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="close" layoutX="1136.0" layoutY="3.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="49.0" styleClass="close" stylesheets="@CSS/GererBonsPlans.css" text="X" AnchorPane.rightAnchor="1.600000000000044" AnchorPane.topAnchor="3.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label contentDisplay="CENTER" layoutX="57.0" layoutY="1.0" prefHeight="26.0" prefWidth="78.0" text="Fast HK ">
+               <font>
+                  <Font name="Bell MT" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

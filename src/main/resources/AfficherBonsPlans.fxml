@@ -86,7 +86,7 @@
                                             </font>
                                         </Label>
                                         <Line endX="56.40000915527344" endY="-3.814697265625E-6" layoutX="106.0" layoutY="51.0" startX="-82.00001525878906" stroke="#1b1a1a" />
-                                        <Button layoutX="-1.0" layoutY="85.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="180.0" styleClass="nav-btn" text="              Home                        " textFill="#403c3c">
+                                        <Button layoutX="-1.0" layoutY="85.0" mnemonicParsing="false" onAction="#SwitchHomepage" prefHeight="22.0" prefWidth="180.0" styleClass="nav-btn" text="              Home                        " textFill="#403c3c">
                                             <font>
                                                 <Font name="System Bold" size="12.0" />
                                             </font>
@@ -96,7 +96,7 @@
                                                 <Font name="System Bold" size="12.0" />
                                             </font>
                                         </Button>
-                                        <Button layoutY="132.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="139.0" styleClass="nav-btn" text="            Bons Plans ">
+                                        <Button layoutY="132.0" mnemonicParsing="false" onAction="#switchToAfficherBonsPlans" prefHeight="23.0" prefWidth="139.0" styleClass="nav-btn" text="            Bons Plans ">
                                             <font>
                                                 <Font name="System Bold" size="12.0" />
                                             </font>
@@ -168,7 +168,7 @@
                                                             <Font name="Berlin Sans FB" size="30.0" />
                                                          </font>
                                                       </Label>
-                                                      <ScrollPane prefHeight="259.0" prefWidth="911.0" VBox.vgrow="ALWAYS">
+                                                      <ScrollPane prefHeight="258.0" prefWidth="654.0" VBox.vgrow="ALWAYS">
                                                          <content>
                                                             <GridPane fx:id="gridPane" prefHeight="0.0" prefWidth="0.0" stylesheets="@CSS/cardlayoout.css">
                                                               <columnConstraints>
