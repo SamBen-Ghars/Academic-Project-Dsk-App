@@ -11,34 +11,36 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<VBox fx:id="grid" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="220.0" style="-fx-background-radius: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.fastkh.controllers.GridController">
+<VBox fx:id="grid" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="352.0" prefWidth="462.0" style="-fx-background-radius: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.fastkh.controllers.GridController">
    <children>
-      <ImageView fx:id="Imagev" fitHeight="184.0" fitWidth="227.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Imagev" fitHeight="194.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/EL-Ali.jpg" />
          </image>
+         <VBox.margin>
+            <Insets left="100.0" />
+         </VBox.margin>
       </ImageView>
-      <VBox prefHeight="155.0" prefWidth="215.0">
+      <ImageView fx:id="ImageAvis" fitHeight="43.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/Avisjpg.jpg" />
+         </image>
+         <VBox.margin>
+            <Insets bottom="2.0" left="150.0" />
+         </VBox.margin>
+      </ImageView>
+      <Label fx:id="titlep" prefHeight="19.0" prefWidth="98.0" text="Dar Zarrouk" textAlignment="CENTER">
+         <font>
+            <Font name="Berlin Sans FB" size="16.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="180.0" />
+         </VBox.margin>
+      </Label>
+      <VBox prefHeight="88.0" prefWidth="462.0">
          <children>
-            <Label fx:id="titlep" prefHeight="19.0" prefWidth="98.0" text="Dar Zarrouk" textAlignment="CENTER">
-               <font>
-                  <Font name="Berlin Sans FB" size="16.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="60.0" />
-               </VBox.margin>
-            </Label>
-            <Text fx:id="descp" strokeType="OUTSIDE" strokeWidth="0.0" text="cdescpdescpvvvdescpiu&#10;QKHLSJLmosQSKMQks&#10;qqdsuùMQODSJLsqj&lt;d" textAlignment="CENTER" wrappingWidth="211.73675537109375" />
-            <ImageView fx:id="ImageAvis" fitHeight="43.0" fitWidth="215.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@image/Avisjpg.jpg" />
-               </image>
-               <VBox.margin>
-                  <Insets bottom="2.0" left="20.0" />
-               </VBox.margin>
-            </ImageView>
-            <Button fx:id="Butmaps" mnemonicParsing="false" text="Go">
+            <Text fx:id="descp" strokeType="OUTSIDE" strokeWidth="0.0" text="Situé à Sidi Bou Said, Dar Zarrouk est l’un des restaurants les plus célèbres de ce village. Son cadre enchanteur, son service de qualité et sa délicieuse cuisine font de lui un bon plan." textAlignment="CENTER" wrappingWidth="444.53675842285156" />
+            <Button fx:id="Butmaps" mnemonicParsing="false" prefHeight="24.0" prefWidth="226.0" styleClass="transparent" stylesheets="@CSS/cardlayoout.css">
                <graphic>
                   <ImageView fitHeight="21.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -46,6 +48,14 @@
                      </image>
                   </ImageView>
                </graphic>
+               <VBox.margin>
+                  <Insets left="100.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#openAvisView" prefHeight="26.0" prefWidth="227.0" stylesheets="@CSS/cardlayoout.css" text="Your Feedback ">
+               <VBox.margin>
+                  <Insets left="100.0" />
+               </VBox.margin>
             </Button>
          </children>
       </VBox>

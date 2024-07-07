@@ -14,22 +14,48 @@
     -fx-font-style: italic;
 }
 
+
+
+
+.image-view {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.5, 0, 0);
+}
+
+
+.top-form{
+    -fx-background-color: #ffffff;
+    -fx-border-color:#000;
+    -fx-border-width:.4px .4px .2px .4px;
+}
+
+.semi-top-form{
+    -fx-background-color:#efefef;
+    -fx-border-color:#000;
+    -fx-border-width:.2px .4px .8px .4px;
+}
+
+
+.anchor-pane-left {
+    -fx-background-color: #f5f3f3; /* White */
+}
+
+
+.nav-btn{
+    -fx-background-color:transparent;
+    -fx-cursor:hand;
+    -fx-font-family:"Arial";
+    -fx-text-fill:#100F0FFF;
+
+}
+
 .button {
-    -fx-background-color: #25ccbe;
+    -fx-background-color: transparent;
     -fx-text-fill: white;
     -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-background-radius: 20px;
-    -fx-border-radius: 20px;
-    -fx-pref-width: 240px;
-    -fx-pref-height: 40px;
-    -fx-cursor: hand;
-}
 
+}
 .button:hover {
-    -fx-background-color: #1ea690;
-}
-
-.image-view {
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.5, 0, 0);
+    -fx-background-color: transparent;
 }

@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import tn.esprit.fastkh.models.BonsPlans;
+import tn.esprit.fastkh.models.User;
 
 import java.io.ByteArrayInputStream;
 
@@ -40,7 +41,7 @@ public class CardController {
     }
     private String[] colors = {"B9E5FF", "BDB2FE", "FB9AA8", "FF5056"};
 
-    public void setData(BonsPlans plan) {
+    public void setData(BonsPlans plan, User currentUser) {
         if (plan != null && plan.getImage() != null && plan.getImage().length > 0) {
             try {
                 ByteArrayInputStream bis = new ByteArrayInputStream(plan.getImage());

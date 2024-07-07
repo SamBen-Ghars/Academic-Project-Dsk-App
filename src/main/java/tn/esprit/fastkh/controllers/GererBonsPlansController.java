@@ -221,7 +221,6 @@ public class GererBonsPlansController {
     }
 
 
-
     @FXML
     void ClearFieldsActiondelete(ActionEvent event) {
         clearFields2();
